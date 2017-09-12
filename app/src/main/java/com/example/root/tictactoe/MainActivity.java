@@ -9,7 +9,9 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+    //intially 0=yello 1=red
 
+    int activePlayer=0;
 
 
     @Override
@@ -24,7 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
         counter.setTranslationY(-1000f);
 
+        if(activePlayer == 0){
+
         counter.setImageResource(R.drawable.yellow);
+            activePlayer=1;
+        }
+        else{
+            counter.setImageResource(R.drawable.red);
+            activePlayer=0;
+        }
         //animate back to the screen
         counter.animate().translationYBy(1000f).setDuration(300);
     }
