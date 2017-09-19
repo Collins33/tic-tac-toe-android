@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView counter=(ImageView) view;
 
         counter.setTranslationY(-1000f);
+        System.out.println(counter.getTag().toString());
 
         if(activePlayer == 0){
 
