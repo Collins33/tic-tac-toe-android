@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     //intially 0=yello 1=red
 
     int activePlayer=0;
+    //2 means unplayed
+    int[] gameState={2,2,2,2,2,2,2,2,2};
 
 
     @Override
@@ -20,23 +22,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void dropIn(View view){
+    public void dropIn(View view) {
 
-        ImageView counter=(ImageView) view;
-
-        counter.setTranslationY(-1000f);
+        ImageView counter = (ImageView) view;
         System.out.println(counter.getTag().toString());
+        int tappedCounter = Integer.parseInt(counter.getTag().toString());
 
-        if(activePlayer == 0){
+        if (gameState[tappedCounter] == 2) {
+            counter.setTranslationY(-1000f);
+             gameState[tappedCounter]=90;
 
-        counter.setImageResource(R.drawable.yellow);
-            activePlayer=1;
+            if (activePlayer == 0) {
+
+                counter.setImageResource(R.drawable.yellow);
+                activePlayer = 1;
+            } else {
+                counter.setImageResource(R.drawable.red);
+                activePlayer = 0;
+            }
+            //animate back to the screen
+            counter.animate().translationYBy(1000f).setDuration(300);
         }
-        else{
-            counter.setImageResource(R.drawable.red);
-            activePlayer=0;
-        }
-        //animate back to the screen
-        counter.animate().translationYBy(1000f).setDuration(300);
     }
 }
