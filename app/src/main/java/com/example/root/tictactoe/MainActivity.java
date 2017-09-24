@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //intially 0=yello 1=red
@@ -52,10 +53,16 @@ public class MainActivity extends AppCompatActivity {
                 if(gameState[winningPosition[0]] == gameState[winningPosition[1]]
                         && gameState[winningPosition[1]] == gameState[winningPosition[2]]
                         && gameState[winningPosition[0]] !=2){
+                       //set textview according to winner
+                        String winner="red";
+                    if(gameState[winningPosition[0]] == 0){
+                           winner ="yellow";
+                    };
 
-                    System.out.println(gameState[winningPosition[0]]);
                     //someone has won
                     //find the layout to display
+                    TextView winnerMessage=(TextView) findViewById(R.id.winnerMessage);
+                    winnerMessage.setText(winner + " is the winner");
                     LinearLayout winLayout=(LinearLayout) findViewById(R.id.winLayout);
                     //make layout visible
                     winLayout.setVisibility(View.VISIBLE);
