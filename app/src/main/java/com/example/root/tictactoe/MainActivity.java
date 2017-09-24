@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 if(gameState[winningPosition[0]] == gameState[winningPosition[1]]
                         && gameState[winningPosition[1]] == gameState[winningPosition[2]]
                         && gameState[winningPosition[0]] !=2){
+
                     System.out.println(gameState[winningPosition[0]]);
+                    //someone has won
                 }
             }
         }
