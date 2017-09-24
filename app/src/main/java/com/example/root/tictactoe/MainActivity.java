@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
     //intially 0=yello 1=red
@@ -54,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
                     System.out.println(gameState[winningPosition[0]]);
                     //someone has won
+                    //find the layout to display
+                    LinearLayout winLayout=(LinearLayout) findViewById(R.id.winLayout);
+                    //make layout visible
+                    winLayout.setVisibility(View.VISIBLE);
                 }
             }
         }
