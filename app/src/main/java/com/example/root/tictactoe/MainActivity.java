@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -69,5 +71,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void playAgain(View view){
+        //MAKE MESSAGE DISAPPEAR
+        LinearLayout winLayout=(LinearLayout) findViewById(R.id.winLayout);
+
+        winLayout.setVisibility(View.INVISIBLE);
+        //set game back to default
+         activePlayer=0;
+        //2 means unplayed
+        for(int i=0; i<gameState.length;i++){
+            gameState[i] =2;
+        }
+        //get the gridlayout
+        GridLayout grid=(GridLayout) findViewById(R.id.gridLayout);
+        //loop through the grid
+        for(int i=0; i<grid.getChildCount();i++){
+            ((ImageView) grid.getChildAt(i)).setImageResource(0);
+        }
+
     }
 }
